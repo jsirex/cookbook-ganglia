@@ -1,0 +1,1 @@
+default['ganglia']['gweb']['packages'] = %w|ganglia-webfrontend php5-gd|
