@@ -5,7 +5,7 @@
 query = []
 query << "chef_environment:#{node.chef_environment}"
 query << "recipe:ganglia\\:\\:gmond"
-
+query << "ganglia_gmond_conf_cluster_name:*"
 node.default['ganglia']['gmetad']['search_data_sources'] = query.join(' AND ')
 
 nodes = search(:node, node['ganglia']['gmetad']['search_data_sources'])

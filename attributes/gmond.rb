@@ -31,4 +31,4 @@ default['ganglia']['gmond']['conf']['udp_recv_channel']['mcast_join'] = '239.2.1
 default['ganglia']['gmond']['conf']['udp_recv_channel']['port'] = 8649
 default['ganglia']['gmond']['conf']['udp_recv_channel']['bind'] = '239.2.11.71'
 
-default['ganglia']['gmond']['conf']['tcp_accept_channels']['port'] = 8649
+default['ganglia']['gmond']['conf']['tcp_accept_channel']['port'] = 8649
