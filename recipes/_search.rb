@@ -16,7 +16,7 @@ nodes.each do |n|
   cluster_name = n['ganglia']['gmond']['conf']['cluster']['name']
   polling_interval = 20 # TODO: remove hardcode
   host = node['ganglia']['gmetad']['use_fqdn'] ? n['fqdn'] : n['ipaddress']
-  port = n['ganglia']['gmond']['conf']['tcp_accept_channels']['port']
+  port = n['ganglia']['gmond']['conf']['tcp_accept_channel']['port']
   if data_sources[cluster_name]
     data_sources[cluster_name]['polling_interval'] = polling_interval
     data_sources[cluster_name]['hosts'] << "#{host}:#{port}"

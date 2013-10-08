@@ -26,14 +26,14 @@ host {
    used to only support having a single channel */ 
 udp_send_channel { 
 <% @conf['udp_send_channel'].each_pair do |k,v| %>
-  <%= k %> = "<%= v %>"
+  <%= k %> = <%= v %>
 <% end %>
 } 
 
 /* You can specify as many udp_recv_channels as you like as well. */ 
 udp_recv_channel { 
 <% @conf['udp_recv_channel'].each_pair do |k,v| %>
-  <%= k %> = "<%= v %>"
+  <%= k %> = <%= v %>
 <% end %> 
 } 
 
@@ -41,7 +41,7 @@ udp_recv_channel {
    an xml description of the state of the cluster */ 
 tcp_accept_channel { 
 <% @conf['tcp_accept_channel'].each_pair do |k,v| %>
-  <%= k %> = "<%= v %>"
+  <%= k %> = <%= v %>
 <% end %> 
 } 
 
