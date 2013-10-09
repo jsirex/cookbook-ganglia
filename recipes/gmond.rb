@@ -1,3 +1,4 @@
+# Installs gmond as is (in multicast mode)
 node['ganglia']['gmond']['packages'].each do |pkg|
   package pkg do
     action :install
@@ -15,3 +16,6 @@ service "ganglia-monitor" do
   supports :restart => true
   action [ :enable, :start ]
 end
+
+# Used for chef search features
+node.override['ganglia']['recipe']['gmond'] = true

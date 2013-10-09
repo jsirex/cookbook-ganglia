@@ -3,7 +3,6 @@ default['ganglia']['gmetad']['packages'] = %w|gmetad|
 default['ganglia']['gmetad']['use_fqdn'] = false
 
 
-
 ## Building datasources cannot be hardcoded because they are runtime 
 ## and depends on installed infrastructure. See below only sample of data_sources configuration
 ## Recipe "ganglia::_search" builds datasources on runtime

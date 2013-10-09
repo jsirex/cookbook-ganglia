@@ -84,13 +84,7 @@ Vagrant.configure("2") do |config|
           }
         },
         'gmetad' => {
-          'conf' => {
-            'data_sources' => {
-              '_test_cluster' => {
-                'polling_interval' => 20,
-                'hosts' => ['localhost']
-              }
-            },
+          'conf' => {            
             'gridname' => 'tenant_id'
           }
         }
@@ -98,7 +92,10 @@ Vagrant.configure("2") do |config|
     }
 
     chef.run_list = [        
-       "recipe[ganglia::gmond]",
+       #"recipe[ganglia::gmond_multicast_master]"
+       #"recipe[ganglia::gmond_multicast_slave]"
+       "recipe[ganglia::gmond_unicast_master]",
+       #"recipe[ganglia::gmond_unicast_slave]"
        "recipe[ganglia::gmetad]",
        "recipe[ganglia::gweb]"
     ]
