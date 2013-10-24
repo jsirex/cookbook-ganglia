@@ -10,4 +10,4 @@
 
 # Author
 
-Author:: Yauhen Artsiukohu (<yauhen_artsiukhou@epam.com>)
+Author:: Yauhen Artsiukhou (<yauhen_artsiukhou@epam.com>)

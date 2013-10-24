@@ -1,5 +1,5 @@
 name             'ganglia'
-maintainer       'Yauhen Artsiukohu'
+maintainer       'Yauhen Artsiukhou'
 maintainer_email 'jsirex@gmail.com'
 license          'MIT'
 description      'Installs/Configures ganglia'
