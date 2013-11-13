@@ -18,6 +18,7 @@ class Chef::Recipe::Ganglia
   # Parses node list and return hash or datasources
   def self.get_data_sources(masters, use_fqdn = false)
     data_sources = {}
+    
     masters.each do |n|
       cluster_name = n['ganglia']['gmond']['conf']['cluster']['name']
       polling_interval = 30 # TODO: remove hardcode
@@ -33,6 +34,9 @@ class Chef::Recipe::Ganglia
         }
       end
     end
-    data_sources
+    
+    # Sorting results to prevent unattended restarts 
+    data_sources.each_value {|v| v['hosts'].sort!}       
+    Hash[data_sources.sort]
   end
 end
