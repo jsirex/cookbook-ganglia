@@ -1,6 +1,5 @@
 default['ganglia']['gmond']['packages'] = %w|ganglia-monitor ganglia-monitor-python ganglia-modules-linux|
 
-default['ganglia']['gmond']['mode'] = :multicast # also :unicast is possible
 # Globals
 default['ganglia']['gmond']['conf']['globals']['daemonize'] = 'yes'              
 default['ganglia']['gmond']['conf']['globals']['setuid'] = 'yes'             
