@@ -10,5 +10,5 @@ query << "ganglia_gmond_conf_globals_deaf:no"
 query << "ganglia_recipe_gmond_unicast_master:true"
 node.default['ganglia']['search']['gmond_masters'] = query.join(' AND ')
 
-query << "ganglia_gmond_conf_cluster_name:#{node['ganglia']['gmond']['conf']['cluster']['name']}"
+query << "ganglia_gmond_conf_cluster_name:\"#{node['ganglia']['gmond']['conf']['cluster']['name']}\""
 node.default['ganglia']['search']['gmond_cluster_masters'] = query.join(' AND ')

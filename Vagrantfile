@@ -1,15 +1,19 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+#Vagrant.require_plugin "vagrant-chef-zero"
+Vagrant.require_plugin "vagrant-berkshelf"
+Vagrant.require_plugin "vagrant-omnibus"
+Vagrant.require_plugin "vagrant-chef-zero"
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
   config.vm.hostname = "ganglia"
-
-  # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "wheezy64"
+  config.vm.box = "opscode-debian-7.2.0"
+  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_debian-7.2.0_chef-provisionerless.box"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -51,16 +55,14 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you're using for more
   # information on available options.
 
-  config.ssh.max_tries = 40
-  config.ssh.timeout   = 120
-
   # The path to the Berksfile to use with Vagrant Berkshelf
   # config.berkshelf.berksfile_path = "./Berksfile"
 
   # Enabling the Berkshelf plugin. To enable this globally, add this configuration
   # option to your ~/.vagrant.d/Vagrantfile file
   config.berkshelf.enabled = true
-
+  config.omnibus.chef_version = "11.4.4"
+  config.chef_zero.enabled = true
   # An array of symbols representing groups of cookbook described in the Vagrantfile
   # to exclusively install and copy to Vagrant's shelf.
   # config.berkshelf.only = []
@@ -69,13 +71,13 @@ Vagrant.configure("2") do |config|
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
 
-  config.vm.provision :chef_solo do |chef|
+  config.vm.provision :chef_client do |chef|
     chef.json = {
       'ganglia' => {
         'gmond' => {
           'conf' => {
             'cluster' => {
-              'name' => '_test_cluster', 
+              'name' => '_test cluster with space', 
               'owner' => 'sirex'              
             },
             'host' => {
